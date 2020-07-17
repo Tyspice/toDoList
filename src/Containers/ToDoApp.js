@@ -1,23 +1,6 @@
 import React from 'react';
 
 export class ToDoApp extends React.Component {
-  render() {
-    return (
-      <div>
-        <Title />
-        <ToDoList />
-      </div>
-    );
-  }
-}
-
-const Title = (props) => {
-  return (
-    <h1>*TO DO*</h1>
-  );
-}
-
-class ToDoList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -46,6 +29,7 @@ class ToDoList extends React.Component {
 
     return (
       <div>
+        <h1>*TO DO*</h1>
         <form onSubmit={this.handleSubmit}>
         <input 
         type="text"
