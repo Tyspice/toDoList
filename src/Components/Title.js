@@ -7,9 +7,11 @@ const Title = (props) => {
     };
 
     return (
-        <h1 style={ styles } >
-        { props.title }
-        </h1>
+        <div>
+            <h1 style={ styles } >
+            { props.title }
+            </h1>
+        </div>
     );
 }
 
