@@ -1,4 +1,7 @@
 import React from 'react';
+import '../App.css';
+
+import Title from '../Components/Title'
 
 export class ToDoApp extends React.Component {
   constructor(props) {
@@ -29,7 +32,7 @@ export class ToDoApp extends React.Component {
 
     return (
       <div>
-        <h1>*TO DO*</h1>
+        <Title title='*TO DO*' />
         <form onSubmit={this.handleSubmit}>
         <input 
         type="text"
