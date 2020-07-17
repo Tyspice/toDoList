@@ -2,27 +2,20 @@ import React from 'react';
 import '../App.css';
 
 import Title from '../Components/Title'
+import Form from '../Components/ToDoForm'
 
 export class ToDoApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userInput: '',
       toDoList: []
     };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.addToDo = this.addToDo.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({userInput: e.target.value})
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    this.setState({ toDoList: [...this.state.toDoList, this.state.userInput] });
-    this.setState({userInput: ''});
+  addToDo(todo) {
+    this.setState({ toDoList: [...this.state.toDoList, todo] });
   }
 
   render(){
@@ -33,13 +26,7 @@ export class ToDoApp extends React.Component {
     return (
       <div>
         <Title title='*TO DO*' />
-        <form onSubmit={this.handleSubmit}>
-        <input 
-        type="text"
-        value={this.state.userInput}
-        onChange={this.handleChange}
-        />
-        </form>
+        <Form addToDoFn={ this.addToDo } />
         <ul>{ items }</ul>
       </div>
     );
