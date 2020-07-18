@@ -13,10 +13,19 @@ export class ToDoApp extends React.Component {
     };
 
     this.addToDo = this.addToDo.bind(this);
+    this.removeToDo = this.removeToDo.bind(this);
   }
 
   addToDo(todo) {
     this.setState({ toDoList: [...this.state.toDoList, todo] });
+  }
+
+  removeToDo(itemIndex) {
+    let array = [...this.state.toDoList];
+    if (itemIndex !== -1) {
+      array.splice(itemIndex, 1);
+      this.setState({toDoList: array});
+    }
   }
 
   render(){
@@ -25,7 +34,10 @@ export class ToDoApp extends React.Component {
       <div className='app-container' >
         <Title title='*  TO DO  *' />
         <Form addToDoFn={ this.addToDo } />
-        <ToDoList toDos= { this.state.toDoList } />
+        <ToDoList 
+        toDos= { this.state.toDoList } 
+        removeToDoFn={ this.removeToDo }
+        />
       </div>
     );
   }

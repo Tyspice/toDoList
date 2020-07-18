@@ -2,6 +2,15 @@ import React from 'react';
 import ToDoItem from './ToDoItem';
 
 class ToDoList extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.removeToDo = this.removeToDo.bind(this);
+    }
+
+    removeToDo(itemIndex) {
+        this.props.removeToDoFn(itemIndex);
+    }
     
     render() {
 
@@ -10,9 +19,14 @@ class ToDoList extends React.Component {
         return (
             <div>
             { 
-                items.map((_item, _key) => {
+                items.map((_item, _index) => {
                     return(
-                        <ToDoItem key={_key} _item={ _item } />
+                        <ToDoItem 
+                        itemIndex={ _index }
+                        key={ _index } 
+                        item={ _item } 
+                        removeToDoFn={ this.removeToDo } 
+                        />
                     )
                 }) 
             }
