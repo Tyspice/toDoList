@@ -32,7 +32,7 @@ export class ToDoApp extends React.Component {
     
     return (
       <div className='app-container' >
-        <Title title='*  TO DO  *' />
+        <Title title=' TO DO ' />
         <Form addToDoFn={ this.addToDo } />
         <ToDoList 
         toDos= { this.state.toDoList } 

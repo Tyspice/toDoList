@@ -2,13 +2,13 @@ import React from 'react';
 
 const Title = (props) => {
 
-    let styles = {
+    let titleStyles = {
         color: 'white'
     };
 
     return (
         <div>
-            <h1 style={ styles } >
+            <h1 style={ titleStyles } >
             { props.title }
             </h1>
         </div>
