@@ -11,6 +11,9 @@ class ToDoItem extends React.Component {
         super(props);
         
         this.handleClose = this.handleClose.bind(this);
+        this.handleCheck = this.handleCheck.bind(this);
+        this.handleUp = this.handleUp.bind(this);
+        this.handleDown = this.handleDown.bind(this);
     }
 
     handleClose() {
@@ -19,6 +22,8 @@ class ToDoItem extends React.Component {
 
     handleCheck() {
         // will handle the check btn
+        this.props.toggleToDoFn(this.props.checked, this.props.itemIndex);
+
     }
 
     handleUp() {
@@ -37,7 +42,7 @@ class ToDoItem extends React.Component {
                     {this.props.item}
                 </div>
                 <div className={ 'icons-container' }>
-                    <div className={ 'icon-container' }>
+                    <div className={ 'icon-container' } onClick={ this.handleCheck }>
                         <CheckmarkIcon className={ 'icon' } />
                     </div>
                     <div className={ 'icon-container' }>

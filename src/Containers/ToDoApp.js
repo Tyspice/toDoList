@@ -14,18 +14,34 @@ export class ToDoApp extends React.Component {
 
     this.addToDo = this.addToDo.bind(this);
     this.removeToDo = this.removeToDo.bind(this);
+    this.toggleToDo = this.toggleToDo.bind(this);
   }
 
-  addToDo(todo) {
-    this.setState({ toDoList: [...this.state.toDoList, todo] });
+  addToDo(_toDo) {
+    this.setState({ 
+      toDoList: 
+      [...this.state.toDoList, {toDo: _toDo, checked: false}] });
   }
 
-  removeToDo(itemIndex) {
+  removeToDo(_itemIndex) {
     let array = [...this.state.toDoList];
-    if (itemIndex !== -1) {
-      array.splice(itemIndex, 1);
+    if (_itemIndex !== -1) {
+      array.splice(_itemIndex, 1);
       this.setState({toDoList: array});
     }
+  }
+
+  toggleToDo (_checked, _itemIndex) {
+    // will toggle checked property
+    let array = [...this.state.toDoList];
+    array.forEach((e, eIndex) => {
+      if (eIndex === _itemIndex) {
+        e.checked = !e.checked;
+        this.setState({toDoList: array});
+      } 
+    });
+
+
   }
 
   render(){
@@ -37,6 +53,7 @@ export class ToDoApp extends React.Component {
         <ToDoList 
         toDos= { this.state.toDoList } 
         removeToDoFn={ this.removeToDo }
+        toggleToDoFn={ this.toggleToDo }
         />
       </div>
     );
