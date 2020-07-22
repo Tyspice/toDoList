@@ -37,22 +37,22 @@ class ToDoItem extends React.Component {
     render() {
 
         return (
-            <div className={ 'todo-container' }>
-                <div className={ 'input' }>
+            <div className={ 'todo-container' + (this.props.checked ? ' checked' : '')}>
+                <div className='input'>
                     {this.props.item}
                 </div>
-                <div className={ 'icons-container' }>
-                    <div className={ 'icon-container' } onClick={ this.handleCheck }>
-                        <CheckmarkIcon className={ 'icon' } />
+                <div className='icons-container'>
+                    <div className='icon-container' onClick={ this.handleCheck }>
+                        <CheckmarkIcon className='icon' />
                     </div>
-                    <div className={ 'icon-container' }>
-                        <UpIcon className={ 'icon' } />
+                    <div className='icon-container'>
+                        <UpIcon className='icon' />
                     </div>
-                    <div className={ 'icon-container' }>
-                        <DownIcon className={ 'icon' } />
+                    <div className='icon-container'>
+                        <DownIcon className='icon' />
                     </div>
-                    <div className={ 'icon-container' } onClick={ this.handleClose }>
-                        <CloseIcon className={ 'icon' } />
+                    <div className='icon-container' onClick={ this.handleClose }>
+                        <CloseIcon className='icon' />
                     </div>
                 </div>
             </div>
