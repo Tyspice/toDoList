@@ -28,10 +28,12 @@ class ToDoItem extends React.Component {
 
     handleUp() {
         // will handle the up btn
+        this.props.moveToDoUpFn(this.props.itemIndex);
     }
 
     handleDown() {
         // will handle the dwn btn
+        this.props.moveToDoDownFn(this.props.itemIndex);
     }
 
     render() {
@@ -45,10 +47,10 @@ class ToDoItem extends React.Component {
                     <div className='icon-container' onClick={ this.handleCheck }>
                         <CheckmarkIcon className='icon' />
                     </div>
-                    <div className='icon-container'>
+                    <div className='icon-container' onClick={ this.handleUp }>
                         <UpIcon className='icon' />
                     </div>
-                    <div className='icon-container'>
+                    <div className='icon-container' onClick={ this.handleDown }>
                         <DownIcon className='icon' />
                     </div>
                     <div className='icon-container' onClick={ this.handleClose }>

@@ -15,15 +15,19 @@ export class ToDoApp extends React.Component {
     this.addToDo = this.addToDo.bind(this);
     this.removeToDo = this.removeToDo.bind(this);
     this.toggleToDo = this.toggleToDo.bind(this);
+    this.moveToDoUp = this.moveToDoUp.bind(this);
+    this.moveToDoDown = this.moveToDoDown.bind(this);
   }
 
   addToDo(_toDo) {
+    //adds a new todo to this.state with the checked property set to false
     this.setState({ 
       toDoList: 
       [...this.state.toDoList, {toDo: _toDo, checked: false}] });
   }
 
   removeToDo(_itemIndex) {
+    // removes todo item from this.state
     let array = [...this.state.toDoList];
     if (_itemIndex !== -1) {
       array.splice(_itemIndex, 1);
@@ -32,7 +36,7 @@ export class ToDoApp extends React.Component {
   }
 
   toggleToDo (_checked, _itemIndex) {
-    // will toggle checked property
+    // toggles checked property in this.state
     let array = [...this.state.toDoList];
     array.forEach((e, eIndex) => {
       if (eIndex === _itemIndex) {
@@ -40,8 +44,32 @@ export class ToDoApp extends React.Component {
         this.setState({toDoList: array});
       } 
     });
+  }
 
+  moveToDoUp (_itemIndex) {
+    // moves the todo up
+    let array = [...this.state.toDoList];
+    if (_itemIndex !== 0) {
+      const moveUp = (arr, init, target) => {
+        [arr[init], arr[target]] = [arr[target], arr[init]];
+        return arr
+      }
+      moveUp(array,_itemIndex,(_itemIndex - 1));
+      this.setState({toDoList: array});
+    }
+  }
 
+  moveToDoDown(_itemIndex) {
+    // moves the todo down
+    let array = [...this.state.toDoList];
+    if (_itemIndex !== (array.length - 1)) {
+      const moveUp = (arr, init, target) => {
+        [arr[init], arr[target]] = [arr[target], arr[init]];
+        return arr
+      }
+      moveUp(array,_itemIndex,(_itemIndex + 1));
+      this.setState({toDoList: array});
+    }
   }
 
   render(){
@@ -54,6 +82,8 @@ export class ToDoApp extends React.Component {
         toDos= { this.state.toDoList } 
         removeToDoFn={ this.removeToDo }
         toggleToDoFn={ this.toggleToDo }
+        moveToDoUpFn={ this.moveToDoUp }
+        moveToDoDownFn={ this.moveToDoDown }
         />
       </div>
     );

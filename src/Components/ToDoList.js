@@ -7,6 +7,8 @@ class ToDoList extends React.Component {
 
         this.removeToDo = this.removeToDo.bind(this);
         this.toggleToDo = this.toggleToDo.bind(this);
+        this.moveToDoUp = this.moveToDoUp.bind(this);
+        this.moveToDoDown = this.moveToDoDown.bind(this);
     }
 
     removeToDo(_itemIndex) {
@@ -14,7 +16,15 @@ class ToDoList extends React.Component {
     }
 
     toggleToDo(_checked, _itemIndex) {
-        this.props.toggleToDoFn(_checked, _itemIndex)
+        this.props.toggleToDoFn(_checked, _itemIndex);
+    }
+
+    moveToDoUp(_itemIndex) {
+        this.props.moveToDoUpFn(_itemIndex);
+    }
+
+    moveToDoDown(_itemIndex) {
+        this.props.moveToDoDownFn(_itemIndex)
     }
     
     render() {
@@ -32,7 +42,9 @@ class ToDoList extends React.Component {
                         item={ _item.toDo }
                         checked={ _item.checked } 
                         removeToDoFn={ this.removeToDo }
-                        toggleToDoFn={ this.toggleToDo } 
+                        toggleToDoFn={ this.toggleToDo }
+                        moveToDoUpFn={ this.moveToDoUp }
+                        moveToDoDownFn={this.moveToDoDown } 
                         />
                     )
                 }) 
