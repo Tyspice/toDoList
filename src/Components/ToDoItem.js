@@ -1,4 +1,5 @@
 import React from 'react';
+import '../CSS/ToDoItem.css';
 import { ReactComponent as CloseIcon } from '../Icons/close-outline.svg';
 import { ReactComponent as CheckmarkIcon } from '../Icons/checkmark-outline.svg';
 
@@ -15,36 +16,26 @@ class ToDoItem extends React.Component {
 
     render() {
 
-        let styles = {
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            fontSize: 20,
-            textAlign: 'center',
-            color: '##2196F3',
-            margin: 10,
-            padding: 10,
-            backgroundColor: '#BBDEFB',
-            borderRadius: 10,
-            width: 500
-        };
-
+        
         let iconStyles = {
             height: 25,
             width: 25
         };
 
         return (
-            <div 
-            style={ styles } 
-            onClick={ this.handleClick } 
+            <div
+            className={ 'todo-container' } 
             >
-                <div>
+                <div className={ 'input' }>
                     {this.props.item}
                 </div>
-                <div>
-                    <CheckmarkIcon style= { iconStyles } />
-                    <CloseIcon style={ iconStyles } />
+                <div className={ 'icons-container' }>
+                    <div className={ 'icon-container' }>
+                        <CheckmarkIcon className={ 'icon' } />
+                    </div>
+                    <div className={ 'icon-container' } onClick={ this.handleClick }>
+                        <CloseIcon className={ 'icon' } />
+                    </div>
                 </div>
             </div>
         );
