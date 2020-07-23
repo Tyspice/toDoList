@@ -1,3 +1,8 @@
+# Tyner's To Do List
+
+Did I hear you say that you yearned for another to do list created as a first project using React. Your call is heard. Your dreams have come true. Enjoy.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
