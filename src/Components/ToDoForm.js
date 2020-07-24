@@ -12,10 +12,12 @@ class Form extends React.Component {
     }
 
     handleChange(e) {
+        //add each new character string to state as they are entered
         this.setState({humanInput: e.target.value})
     }
 
     handleSubmit(e) {
+        // sends the submited result to the state array in the app level above
         e.preventDefault();
         this.props.addToDoFn(this.state.humanInput);
         this.setState({humanInput: ''});
