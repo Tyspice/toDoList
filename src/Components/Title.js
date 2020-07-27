@@ -3,7 +3,7 @@ import React from 'react';
 const Title = (props) => {
 
     let titleStyles = {
-        color: 'white'
+        color: 'black'
     };
 
     return (

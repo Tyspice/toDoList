@@ -1,9 +1,10 @@
 import React from 'react';
 import '../CSS/App.css';
 
-import Title from '../Components/Title'
-import Form from '../Components/ToDoForm'
-import ToDoList from '../Components/ToDoList'
+import Title from '../Components/Title';
+import Form from '../Components/ToDoForm';
+import ToDoList from '../Components/ToDoList';
+import FilterBtn from '../Components/FilterBtn'
 
 export class ToDoApp extends React.Component {
   constructor(props) {
@@ -17,6 +18,7 @@ export class ToDoApp extends React.Component {
     this.toggleToDo = this.toggleToDo.bind(this);
     this.moveToDoUp = this.moveToDoUp.bind(this);
     this.moveToDoDown = this.moveToDoDown.bind(this);
+    this.filterToDos = this.filterToDos.bind(this);
   }
 
   addToDo(_toDo) {
@@ -72,12 +74,17 @@ export class ToDoApp extends React.Component {
     }
   }
 
+  filterToDos() {
+    // will filter todos putting all cheched items at the end
+  }
+
   render(){
     
     return (
       <div className='app-container' >
         <Title title=' TO DO ' />
         <Form addToDoFn={ this.addToDo } />
+        <FilterBtn filterFn= { this.filterToDos }/>
         <ToDoList 
         toDos= { this.state.toDoList } 
         removeToDoFn={ this.removeToDo }
