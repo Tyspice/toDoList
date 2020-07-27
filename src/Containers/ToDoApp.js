@@ -76,6 +76,15 @@ export class ToDoApp extends React.Component {
 
   filterToDos() {
     // will filter todos putting all cheched items at the end
+    let array = [...this.state.toDoList];
+    //this almost works but is buggy
+    //for some reason the buton needs to be clicked twice
+    array.forEach(e => {
+      if(e.checked === true) {
+        array.push(array.splice(array.indexOf(e), 1)[0]);
+      }
+    });
+    this.setState({toDoList: array})
   }
 
   render(){
