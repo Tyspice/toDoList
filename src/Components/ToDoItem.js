@@ -23,7 +23,6 @@ class ToDoItem extends React.Component {
     handleCheck() {
         // will handle the check btn
         this.props.toggleToDoFn(this.props.checked, this.props.itemIndex);
-
     }
 
     handleUp() {
