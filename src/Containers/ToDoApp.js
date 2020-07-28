@@ -25,7 +25,7 @@ export class ToDoApp extends React.Component {
     //adds a new todo to this.state with the checked property set to false
     this.setState({ 
       toDoList: 
-      [...this.state.toDoList, {toDo: _toDo, checked: false}] });
+      [{toDo: _toDo, checked: false}, ...this.state.toDoList] });
   }
 
   removeToDo(_itemIndex) {
@@ -75,15 +75,13 @@ export class ToDoApp extends React.Component {
   }
 
   filterToDos() {
-    // will filter todos putting all cheched items at the end
+    // filters todos putting all cheched items at the end
     let array = [...this.state.toDoList];
-    //this almost works but is buggy
-    //for some reason the buton needs to be clicked twice
-    array.forEach(e => {
-      if(e.checked === true) {
-        array.push(array.splice(array.indexOf(e), 1)[0]);
-      }
-    });
+    let top = [];
+    let bottom = [];
+    // this is not the most elegant solution but it works
+    array.forEach(e => (e.checked === true) ? bottom.push(e) : top.push(e));
+    array = [...top, ...bottom];
     this.setState({toDoList: array})
   }
 
