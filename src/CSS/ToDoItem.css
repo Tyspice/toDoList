@@ -1,46 +1,44 @@
-
 .todo-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 10px;
-    padding: 10px;
-    background-color: #BBDEFB;
-    border-radius: 10px;
-    width: 500px
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 10px;
+	padding: 10px;
+	background-color: #bbdefb;
+	border-radius: 10px;
+	width: 500px;
 }
 
 .checked {
-    background-color: tomato;
-    text-decoration: line-through;
+	background-color: tomato;
+	text-decoration: line-through;
 }
 
 .icons-container {
-    display: flex;
-    flex-direction: row;
+	display: flex;
+	flex-direction: row;
 }
 
 .icon-container {
-    color: white;
+	color: white;
 }
 
 .icon-container :hover {
-    cursor: pointer;
-    border-radius: 50%;
-    background-color: #a1cef3;
-    transition: background-color .3s;
-    
+	cursor: pointer;
+	border-radius: 50%;
+	background-color: #a1cef3;
+	transition: background-color 0.3s;
 }
 
 .input {
-    font-size: 20px;
+	font-size: 20px;
 }
 
 .icon {
-    height: 25px;
-    width: 25px;
+	height: 25px;
+	width: 25px;
 }
 
 .icon-container:hover {
-    cursor: pointer;
+	cursor: pointer;
 }

@@ -1,18 +1,15 @@
-import React from 'react';
+import React from "react";
 
 const Title = (props) => {
+	let titleStyles = {
+		color: "black"
+	};
 
-    let titleStyles = {
-        color: 'black'
-    };
-
-    return (
-        <div>
-            <h1 style={ titleStyles } >
-            { props.title }
-            </h1>
-        </div>
-    );
-}
+	return (
+		<div>
+			<h1 style={titleStyles}>{props.title}</h1>
+		</div>
+	);
+};
 
 export default Title;

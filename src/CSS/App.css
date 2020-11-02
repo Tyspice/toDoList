@@ -1,37 +1,36 @@
 body {
-    background-color: #1976D2;
+	background-color: #1976d2;
 }
 
 .app-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: column;
 }
 
 .filter-container {
-    display: flex;
-    flex-direction: row;
-    padding: 5px;
+	display: flex;
+	flex-direction: row;
+	padding: 5px;
 }
 
 .filter-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	height: 50px;
 }
 
 .filter-btn:hover {
-    cursor: pointer;
-    border-radius: 50%;
-    background-color: gray;
-    transition: background-color .3s;
+	cursor: pointer;
+	border-radius: 50%;
+	background-color: gray;
+	transition: background-color 0.3s;
 }
 
 .filter-icon {
-    height: 40px;
-    width: 40px;
+	height: 40px;
+	width: 40px;
 }
